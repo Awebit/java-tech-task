@@ -8,7 +8,7 @@ services:
     volumes:
       - mysqldata:/var/lib/lunch
     environment:
-      - MYSQL_USER=root
+      - MYSQL_USER=rezdy
       - MYSQL_ROOT_PASSWORD=rezdytechtask
       - MYSQL_DATABASE=lunch
 volumes:

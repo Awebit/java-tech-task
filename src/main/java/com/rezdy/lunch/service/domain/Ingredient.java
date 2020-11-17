@@ -1,4 +1,6 @@
-package com.rezdy.lunch.service;
+package com.rezdy.lunch.service.domain;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -10,9 +12,28 @@ public class Ingredient {
     @Id
     private String title;
 
+    @JsonIgnore
     private LocalDate bestBefore;
 
+    @JsonIgnore
     private LocalDate useBy;
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ingredient)) return false;
+
+        Ingredient that = (Ingredient) o;
+
+        return title != null ? title.equals(that.title) : that.title == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return title != null ? title.hashCode() : 0;
+    }
+
 
     public String getTitle() {
         return title;
